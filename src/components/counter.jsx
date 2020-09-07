@@ -3,13 +3,22 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 0,
+    tags: ["tag1", "tag2", "tag3"],
   };
 
-  // styles = {
-  //   fontSize: 14,
-  //   fontWeight: 'bold'
+  // constructor() {
+  //   super();
+  //   this.handleIncrement = this.handleIncrement.bind(this);
   // }
-
+  
+  // handleIncrement() {
+  //   console.log("Clicked!");
+  // }
+  
+  handleIncrement = () => {
+    this.setState({ count: this.state.count + 1 })
+  }
+  
   formatCounter() {
     //Destructuring:
     const { count } = this.state;
@@ -20,10 +29,22 @@ class Counter extends Component {
   render() {
     return (
       <>
-        <span className={this.getBadgeClasses()} style={{ fontSize: 15, fontWeight: "bold" }}>
+        <span
+          className={this.getBadgeClasses()}
+          style={{ fontSize: 15, fontWeight: "bold" }}
+        >
           {this.formatCounter()}
         </span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
+
+        <ul>
+          {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
+        </ul>
       </>
     );
   }
