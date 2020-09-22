@@ -19,10 +19,10 @@ class Counter extends Component {
     this.setState({ count: this.state.count + 1 })
   }
   
-  formatCounter() {
-    //Destructuring:
+  formatCount() {
+    //Object Destructure:
     const { count } = this.state;
-    return count === 0 ? "Zero" : count;
+    return count === 0 ? <h4>Zero</h4> : count;
     //return this.state.count === 0 ? 'Zero' : this.state.count;
   }
 
@@ -33,7 +33,7 @@ class Counter extends Component {
           className={this.getBadgeClasses()}
           style={{ fontSize: 15, fontWeight: "bold" }}
         >
-          {this.formatCounter()}
+          {this.formatCount()}
         </span>
         <button
           onClick={this.handleIncrement}
