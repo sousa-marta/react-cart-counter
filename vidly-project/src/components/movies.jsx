@@ -8,7 +8,7 @@ export default class Movies extends Component {
 
 	handleDelete = movie => {
 		const movies = this.state.movies.filter(m => m._id !== movie._id)
-		this.setState({ movies: movies })
+		//this.setState({ movies: movies })
 		//can be simplified to just:
 		this.setState({ movies })
 	}
@@ -45,7 +45,8 @@ export default class Movies extends Component {
 									<td>{movie.dailyRentalRate}</td>
 									<td>
 										<button
-											onClick={() => this.handleDelete(movie)}
+											onClick={() => this.handleDelete(movie)} 
+											//it has to be called here with arrow function to pass parameter
 											type="button"
 											className="btn btn-danger"
 										>
